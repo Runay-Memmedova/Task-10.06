@@ -1,0 +1,15 @@
+1. **DDL Operation (CREATE)**
+Write a SQL statement to create a new table named 'new_employees' that has the same structure as the 'employees' table.
+create table new_employees as select* from employees where 1=2;
+2. **DML Operation (INSERT)**
+Write a SQL statement to insert a new record into the 'employees' table. Use your own values for the data.
+insert into employees values('333','Runay','Memmmedova','runym@gmail.com','111.222.3333','12-JAN-23','AP-Pm','50000','50');
+3. **SELECT Statement**
+Write a SQL statement to select all employees' first and last names and their department ids from the 'employees' table.
+select first_name,last_name,department_id from employees;
+4. **Single Function (Character)**
+Write a SQL statement to display the first name of all employees in lower case.
+select lower(first_name) from employees;
+5. **Aggregate Function**
+Write a SQL statement to find the average salary in the 'employees' table.
+select avg(salary)from employees;
