@@ -1,0 +1,19 @@
+ --1. **SELECT with JOIN and USING clause**Write a SQL statement to display the employee's full name and department name using the 'department_id' field.
+  select concat(e. first_name,e. last_name) as employee_name, d. department_name from employees e
+  join departments d
+  using(department_id);
+--2. **SELECT with CASE statement**Write a SQL statement to categorize employees' salaries into 'Low', 'Medium' and 'High'.
+select first_name,salary,
+case  when salary<7000 then 'low'
+when salary<1000 then 'medium' 
+else 'high' end as salarys
+from employees;
+--3. **SELECT with Subquery in SELECT clause**Write a SQL statement to display the department name and the highest salary in each department.
+select d. department_name,e. salary from employees e
+join departments d
+using (department_id)
+where salary=(select max(salary) from employees);
+--4. **SELECT with WHERE and NULL clause**Write a SQL statement to find all employees with no commission_pct.
+select first_name, commission_pct from employees where commission_pct is null;
+--5. **SELECT with GROUP BY and ROLLUP clause**Write a SQL statement to show the total salary, grouped by department and job title.
+select sum(salary),job_id,department_id from employees group by rollup(job_id,department_id);
