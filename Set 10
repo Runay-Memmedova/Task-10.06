@@ -1,0 +1,18 @@
+--1. **SELECT with Self JOIN**Write a SQL statement to find pairs of employees who have the same job title.
+select e1.first_name,e2.job_id from employees e1
+join employees e2
+on e1.employee_id=e2.employee_id;
+--2. **SELECT with Aggregate Function and WHERE clause**Write a SQL statement to find the total salary of employees whose department id is 30.
+select sum(salary) from employees where department_id=30;
+--3. **SELECT with UNION ALL clause**Write a SQL statement to combine the list of all department IDs in 'employees' and 'departments' table including duplicates.
+create table new_dep_id as select department_id from departments 
+union all select department_id from employees;
+--4. **SELECT with NOT IN clause**Write a SQL statement to select all employees who do not work in department 30, 50 or 80.
+select*from employees where department_id not in(30,50,80);
+--5. **SELECT with Subquery in FROM clause**Write a SQL statement to select the highest paid employee from each department.
+select d.department_name, e.salary 
+from departments d
+join employees e
+on d.department_id= e. department_id
+ where e.salary=(select max(salary) from employees where department_id= d.department_id);
+ 
